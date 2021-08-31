@@ -1,0 +1,39 @@
+html{
+   box-sizing: border-box;    
+ }
+ *,*::before, *::after{       /*  наследуется border-box*/
+   box-sizing: inherit;
+ }
+
+
+body{
+   background-color: #E6E6FA;
+   
+}
+main{
+   display: grid;
+   grid-template: 1fr / 1fr  minmax(auto, 500px) minmax(auto, 780px) 1fr;
+   font-family: Helvetica, sans-serif;
+}
+
+.profile{
+   grid-column: 2/3;
+}
+.examples-items{
+   background-color: cornsilk;
+   border-radius: 20px;
+   padding: 25px 25px 25px 25px;
+   font-style: italic;
+}
+
+.photo p{
+   text-align: center;
+}
+
+.photo figcaption{
+   font-family:Andale Mono, monospace;
+   text-align: center;
+}
+.contacts{
+   padding: 5px 0 0 45px;
+}
