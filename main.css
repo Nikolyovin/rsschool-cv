@@ -10,7 +10,7 @@ body{
    background-color: #E6E6FA;
    
 }
-.main{
+main{
    display: grid;
    grid-template: 1fr / 1fr  minmax(auto, 500px) minmax(auto, 780px) 1fr;
    font-family: Helvetica, sans-serif;
@@ -33,4 +33,7 @@ body{
 .photo figcaption{
    font-family:Andale Mono, monospace;
    text-align: center;
+}
+.contacts{
+   padding: 5px 0 0 45px;
 }
