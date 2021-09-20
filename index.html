@@ -4,61 +4,148 @@
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
    <title>cv.md</title>
    <link rel="stylesheet" href="./main.css">
 </head>
 
 <body>
-   <main>
 
-      <div class="profile">
-         <figure class="photo">
-            <p><img src="./ava.jpg" alt="Avatar"></p>
-            <figcaption>Nikolay Lyovin</figcaption>
+   <div class="wrapper">
+      <header class="header">
 
 
+         <nav class="header-menu">
+            <ul class="header-menu-list">
+               <li class="header-menu-items">
+                  <a href="#information" class="header-menu-link">Information</a>
+               </li>
+               <li class="header-menu-items">
+                  <a href="#examples" class="header-menu-link">Code examples</a>
+               </li>
+               <li class="header-menu-items">
+                  <a href="#experience" class="header-menu-link">Experience</a>
+               </li>
+               <li class="header-menu-items">
+                  <a href="#educ" class="header-menu-link">Education</a>
+               </li>
+            </ul>
+            <a href="https://rs.school/js/" class="logo-link">
+               <img class="rss" src="rs_school_js.svg" alt="RSschool">
+            </a>
 
-         </figure>
-         <div class="contacts">
-            <ul class="contacts-items">
-               <li class="contacts-link">+7(953)-747-63-28</li>
-               <li class="contacts-link">nikolyovin@gmail.com</li>
-               <li class="contacts-link">@nikolyovin</li>
+
+         </nav>
+
+
+      </header>
+
+      <header class="header-mob">
+
+         <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+               <span></span>
+            </label>
+            <ul class="menu__box">
+               <li><a class="menu__item" href="#information">Information</a></li>
+               <li><a class="menu__item" href="#examples">Code examples</a></li>
+               <li><a class="menu__item" href="#experience">Experience</a></li>
+               <li><a class="menu__item" href="#educ">Education</a></li>
             </ul>
          </div>
-      </div>
+         <a href="https://rs.school/js/" class="logomob-link">
+            <img class="rssmob" src="rs_school_js.svg" alt="RSschool">
+         </a>
 
-      <section class="content">
-         <div class="info">
-            <h1 class="info-title">Personal information:</h1>
-            <p>I want to learn JavaScript professional and become a frontend developer. I am punctual, disciplined,
-               responsible.I accept new information well, I learn quickly. I have skills in html, css (flexbox, grid),
-               js, git.</p>
-         </div>
-         <div class="examples">
-            <h2 class="examples-title">Code examples in codewars:</h2>
-            <p class="examples-items">function findShort(s){<br>
-               return Math.min(...s.split(' ').map(word => word.length));<br>
-               }</p>
-            <p class="examples-items">function squareDigits(num){<br>
-               let sum=String(num).split('').map(val=>(val*val)).join('');<br>
-               return +sum;<br>
-               }</p>
-         </div>
-         <div class="experience">
-            <h2 class="experience-title">Code examples in codewars:</h2>
-            <p class="experience-items"></p>
-         </div>
-         <div class="education">
-            <h2 class="education-title">Education:</h2>
-            <p class="education-items">Ryazan State Radio Engineering University (RSREU) - Applied Informatics</p>
-            <p class="education-items"> English at an elementary level</p>
-         </div>
-      </section>
-   </main>
-   <footer></footer>
+      </header>
+      <main class="main">
 
+
+         <div class="profile">
+            <figure class="photo">
+               <p><img class="ava" src="ava.jpg" alt="Avatar"></p>
+               <figcaption>Nikolay Lyovin</figcaption>
+            </figure>
+
+            <div class="contacts">
+               <ul class="contacts-items">
+                  <li class="contacts-link">+7(953)-747-63-28</li>
+                  <li class="contacts-link">nikolyovin@gmail.com</li>
+                  <li class="contacts-link">@nikolyovin</li>
+               </ul>
+            </div>
+         </div>
+
+         <section class="content">
+            <div class="info">
+               <h1 id="information" class="info-title title">Personal information:</h1>
+               <p class="info-text">&emsp; I want to learn JavaScript professional and become a frontend developer. I am
+                  punctual,
+                  disciplined,
+                  responsible.I accept new information well, I learn quickly.<br> &emsp; a healthy lifestyle. I have
+                  been
+                  doing
+                  bjj for 5 years, I have a blue belt. Sometimes I take part in competitions and do prizes.
+
+                  <br>&emsp; I also love hiking and kayaking. Еhis allows you to test yourself in various extreme
+                  conditions.
+               </p>
+
+               <h3 class="skills-title ">I have skills in:</h3>
+               <ul class="skills">
+                  <li class="skills-item">Html</li>
+                  <li class="skills-item">Css (flexbox, grid)</li>
+                  <li class="skills-item">JavaScript</li>
+                  <li class="skills-item">Git</li>
+                  <li class="skills-item">Figma</li>
+               </ul>
+            </div>
+
+            <div id="examples" class="examples">
+               <h2 class="examples-title title">Code examples in codewars:</h2>
+               <p class="examples-items">function findShort(s){<br>
+                  return Math.min(...s.split(' ').map(word => word.length));<br>
+                  }</p>
+               <p class="examples-items">function squareDigits(num){<br>
+                  let sum=String(num).split('').map(val=>(val*val)).join('');<br>
+                  return +sum;<br>
+                  }</p>
+            </div>
+            <div id="experience" class="experience">
+               <h2 class="experience-title title">Experience:</h2>
+               <p class="experience-items"></p>
+            </div>
+            <div id="educ" class="education">
+               <h2 class="education-title title">Education:</h2>
+               <p class="education-items">Ryazan State Radio Engineering University (RSREU) - Applied Informatics</p>
+               <p class="education-items"> English at an elementary level.</p>
+            </div>
+         </section>
+      </main>
+
+      <footer class="footer">
+         <div class="footer-menu">
+            <ul class="footer-list">
+               <li class="footer-items">
+                  <a href="https://rs.school/js/" class="footer-link">
+                     <img class="rss" src="rs_school_js.svg" alt="RSschool">
+                  </a>
+               </li>
+
+               <li class="footer-items">
+                  <a href="https://github.com/Nikolyovin" class="footer-link">
+                     <img class="github" src="github.svg" alt="github">
+                  </a>
+               </li>
+            </ul>
+            <div class="date">
+               <p>Russia, Ryazan, 2021 </p>
+            </div>
+         </div>
+
+      </footer>
+   </div>
 
 </body>
 
