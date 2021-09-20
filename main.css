@@ -1,39 +1,353 @@
-html{
-   box-sizing: border-box;    
- }
- *,*::before, *::after{       /*  наследуется border-box*/
-   box-sizing: inherit;
- }
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+/****************************************
+****************************************/
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  /*  наследуется border-box*/
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #e6e6fa;
+  height: 100%;
+  width: 100%;
+}
+.wrapper {
+  display: grid;
+  grid-template: auto 1fr auto / 1fr;
+  grid-template-areas:                           /*даем название grid элементам*/
+    "header"
+    "main"
+    "footer";
+  width: 100%;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #336699;
+  grid-area: header;
+  width: 100%;
+  max-height: 50px;
+}
+
+.header .rss {
+  height: 40px;
+  width: auto;
+}
+.header-menu {
+  display: grid;
+  grid-template: 1fr/ 1fr minmax(auto, 1028px) minmax(auto, 100px) 1fr;
+}
+.header-menu-list {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+.header-menu-items {
+  margin: 0 30px 0 0;
+}
+
+.header-menu-link:hover {
+  border-bottom: 1px solid black;
+}
+
+.header-menu-link {
+  color: black;
+  text-decoration: none;
+}
 
 
-body{
-   background-color: #E6E6FA;
-   
-}
-main{
-   display: grid;
-   grid-template: 1fr / 1fr  minmax(auto, 500px) minmax(auto, 780px) 1fr;
-   font-family: Helvetica, sans-serif;
+/********************************************
+**************memu-berger********************/
+.header-mob{
+  display: none;
 }
 
-.profile{
-   grid-column: 2/3;
+.hamburger-menu {
+  position: fixed;
+  background-color: #336699;
+  grid-area: header;
+  width: 100%;
+  height: 50px;
+  z-index: 100;
 }
-.examples-items{
-   background-color: cornsilk;
-   border-radius: 20px;
-   padding: 25px 25px 25px 25px;
-   font-style: italic;
+#menu__toggle {
+  opacity: 0;
+}
+.menu__btn {
+  display: flex; /* используем flex для центрирования содержимого */
+  align-items: center; /* центрируем содержимое кнопки */
+  position: fixed;
+  top: 12px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+}
+.menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  text-align: center;
+  background-color: #336699;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+}
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.menu__item:hover {
+  background-color: #61cdfc;
+}
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  transition-duration: 0.25s;
+}
+.menu__box {
+  transition-duration: 0.25s;
+}
+.menu__item {
+  transition-duration: 0.25s;
+}
+.logomob-link {
+  display: flex;
+  justify-content: right;
+  position: fixed;
+  top: 5px;
+  right: 20px;
+  z-index: 105;
+}
+.rssmob {
+  height: 40px;
+  width: auto;
 }
 
-.photo p{
-   text-align: center;
+/*********************************************
+*********************************************/
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 500px) minmax(auto, 780px) 1fr;
+  font-family: Helvetica, sans-serif;
+  margin: 50px 0 0 0;
 }
 
-.photo figcaption{
-   font-family:Andale Mono, monospace;
-   text-align: center;
+.profile {
+  grid-column: 2/3;
 }
-.contacts{
-   padding: 5px 0 0 45px;
+
+.examples-items {
+  background-color: cornsilk;
+  border-radius: 20px;
+  padding: 25px;
+  font-style: italic;
+  margin: 0 0 20px 0;
+  width: 70%;
+}
+
+.photo p {
+  text-align: center;
+}
+.photo p img {
+  border-radius: 25px;
+}
+
+.photo figcaption {
+  font-family: Andale Mono, monospace;
+  text-align: center;
+}
+.contacts {
+  padding: 5px 0 0 45px;
+}
+.info-text {
+  padding: 10px;
+}
+.skills-title {
+  font-size: 18px;
+}
+
+.education-items {
+  padding: 10px;
+}
+/**************************************************
+*************************************************/
+.footer {
+  grid-area: footer;
+  background-color: #999999;
+  grid-area: "footer";
+
+  width: 100%;
+  height: 100%;
+}
+.footer-menu {
+  height: 100%;
+}
+.footer-list {
+  display: flex;
+  padding: 7px 0 0 0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+.footer-menu .rss {
+  height: 40px;
+  width: auto;
+}
+
+.footer-menu .github {
+  height: 40px;
+  width: auto;
+}
+.date {
+  text-align: center;
+  font-family: "Playfair Display SC", serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 18px;
+  color: #222222;
+}
+/******************************************
+*********адаптив**************************/
+
+@media screen and (max-width: 1200px) {
+  .main {
+    width: 1140px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .header {
+    display: none;
+  }
+  .header-mob{
+    display: block;
+  }
+
+
+  .main {
+    width: 760px;
+    display: inline;
+    margin: 50px auto;
+  }
+  .profile {
+    margin: 30px 0 0 0;
+  }
+  .content {
+    margin: 0 auto;
+    padding: 50px;
+  }
+  .title {
+    text-align: center;
+  }
+  .examples-items {
+    margin: 15px auto;
+    width: 100%;
+  }
+  .contacts,
+  .contacts-items {
+    padding: 0;
+  }
+  .contacts-link {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 759px) {
+  .main {
+    width: 360px;
+  }
+  .examples-items {
+    font-size: 13px;
+  }
+  .ava {
+    max-width: 90%;
+  }
+}
+@media screen and (max-width: 359px) {
+  .main {
+    width: 90%;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
 }
